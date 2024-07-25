@@ -6,3 +6,41 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Chat {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  chatName      String
+  isGroup       Boolean  @default(false)
+  users         User[]
+  groupAdmin    User?    @relation(fields: [userId], references: [id])
+  latestMessage Message?
+  createdAt     DateTime @default(auto())
+  updatedAt     DateTime @updatedAt
+  userId        String?  @db.ObjectId
+}
+
+model Message {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  sender    User     @relation(fields: [userId], references: [id])
+  Chat      Chat     @relation(fields: [chatId], references: [id])
+  createdAt DateTime @default(auto())
+  updatedAt DateTime @updatedAt
+  userId    String   @db.ObjectId
+  chatId    String   @db.ObjectId
+}
+
+model User {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  email    String
+  password String
+  imgUrl   String? @default("")
+
+  createdAt DateTime  @default(auto())
+  updatedAt DateTime  @updatedAt
+  Chat      Chat?     @relation(fields: [chatId], references: [id])
+  chatId    String?   @db.ObjectId
+  Chat      Chat[]    @relation(fields: [chatId], references: [id])
+  Message   Message[]
+}
