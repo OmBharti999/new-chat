@@ -1,7 +1,11 @@
-import React from "react";
+import { AuroraBackgroundDemo } from "@/components/shared/background";
 
 const Homepage = () => {
-  return <div>Homepage</div>;
+  return (
+    <div>
+      <AuroraBackgroundDemo />
+    </div>
+  );
 };
 
 export default Homepage;
