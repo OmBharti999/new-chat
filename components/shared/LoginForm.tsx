@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
-import {
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandOnlyfans,
-} from "@tabler/icons-react";
+// import {
+//   IconBrandGithub,
+//   IconBrandGoogle,
+//   IconBrandOnlyfans,
+// } from "@tabler/icons-react";
+import {AnimatedTabs} from "./AnimatedTabs"
 
 export function SignupForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -151,10 +152,8 @@ export const LoginForm = () => {
   const [isSigningIn, setIsSigningIn] = useState(true);
   return (
     <div>
-      <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black mb-4">
-        <button onClick={() => setIsSigningIn((p) => !p)}>Sign in</button>
-      </div>
-      {isSigningIn ? <SigninForm /> : <SignupForm />}
+     <AnimatedTabs/>
+      {/* {isSigningIn ? <SigninForm /> : <SignupForm />} */}
     </div>
   );
 };
