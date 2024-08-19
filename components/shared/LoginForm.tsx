@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 //   IconBrandGoogle,
 //   IconBrandOnlyfans,
 // } from "@tabler/icons-react";
-import { AnimatedTabs } from "./AnimatedTabs";
+// import { AnimatedTabs } from "./AnimatedTabs";
 
 export function SignupForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -148,12 +148,12 @@ const LabelInputContainer = ({
   );
 };
 
-export const LoginForm = () => {
-  const [isSigningIn, setIsSigningIn] = useState(true);
-  return (
-    <>
+// export const LoginForm = () => {
+//   const [isSigningIn, setIsSigningIn] = useState(true);
+//   return (
+//     <>
     
-     {isSigningIn ? <SigninForm /> : <SignupForm />}
-    </>
-  );
-};
+//      {isSigningIn ? <SigninForm /> : <SignupForm />}
+//     </>
+//   );
+// };
