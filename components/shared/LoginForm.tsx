@@ -151,9 +151,9 @@ const LabelInputContainer = ({
 export const LoginForm = () => {
   const [isSigningIn, setIsSigningIn] = useState(true);
   return (
-    // <div className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto">
-      <AnimatedTabs />
-      //  {isSigningIn ? <SigninForm /> : <SignupForm />} 
-    // </div>
+    <>
+    
+     {isSigningIn ? <SigninForm /> : <SignupForm />}
+    </>
   );
 };
